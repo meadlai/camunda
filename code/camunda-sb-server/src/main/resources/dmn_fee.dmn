@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="dmnfee-all" name="dmn_fee" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.1.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <decision id="dmn_fee" name="Charge Fee">
+    <decisionTable id="DecisionTable_0dqhvpv">
+      <input id="InputClause_1njbfnr" label="Name">
+        <inputExpression id="LiteralExpression_09aedp0" typeRef="string">
+          <text>name</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Fee rate" typeRef="string" />
+      <rule id="DecisionRule_1vjcr7p">
+        <inputEntry id="UnaryTests_0rs2jq8">
+          <text>"mead"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wb6efw">
+          <text>0.001</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qwxpn2">
+        <inputEntry id="UnaryTests_05b4k7d">
+          <text>"mark"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sv7zad">
+          <text>0.002</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="dmn_fee">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_17mu31v" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.1.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <bpmn:process id="digital_reject" name="digital_reject" isExecutable="true">
+    <bpmn:startEvent id="Event_1k2roaj">
+      <bpmn:outgoing>Flow_18jbaxa</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_18jbaxa" sourceRef="Event_1k2roaj" targetRef="script_reject" />
+    <bpmn:scriptTask id="script_reject" name="Send Reject Message" scriptFormat="groovy">
+      <bpmn:incoming>Flow_18jbaxa</bpmn:incoming>
+      <bpmn:outgoing>Flow_1t027r7</bpmn:outgoing>
+      <bpmn:script> println "Groovy script: send reject message "</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:endEvent id="Event_14dioy9">
+      <bpmn:incoming>Flow_1t027r7</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1t027r7" sourceRef="script_reject" targetRef="Event_14dioy9" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="digital_reject">
+      <bpmndi:BPMNEdge id="Flow_18jbaxa_di" bpmnElement="Flow_18jbaxa">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="240" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1t027r7_di" bpmnElement="Flow_1t027r7">
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="462" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_1k2roaj_di" bpmnElement="Event_1k2roaj">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10u1bm6_di" bpmnElement="script_reject">
+        <dc:Bounds x="240" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_14dioy9_di" bpmnElement="Event_14dioy9">
+        <dc:Bounds x="462" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
